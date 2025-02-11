@@ -37,47 +37,13 @@ void matrix_scan_user(void) { // The very important timer.
   }
 }
 
-// Initialize variable holding the binary
-// representation of active modifiers.
-uint8_t mod_state;
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // Store the current modifier state in the variable for later reference
-    mod_state = get_mods();
-    switch (keycode) {
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t word_delete_key_override = ko_make_basic(MOD_MASK_SHIFT, LCTL(KC_BSPC), LCTL(KC_DEL));
 
-    case KC_BSPC:
-        {
-        // Initialize a boolean variable that keeps track
-        // of the delete key status: registered or not?
-        static bool delkey_registered;
-        if (record->event.pressed) {
-            // Detect the activation of either shift keys
-            if (mod_state & MOD_MASK_SHIFT) {
-                // First temporarily canceling both shifts so that
-                // shift isn't applied to the KC_DEL keycode
-                del_mods(MOD_MASK_SHIFT);
-                register_code(KC_DEL);
-                // Update the boolean variable to reflect the status of KC_DEL
-                delkey_registered = true;
-                // Reapplying modifier state so that the held shift key(s)
-                // still work even after having tapped the Backspace/Delete key.
-                set_mods(mod_state);
-                return false;
-            }
-        } else { // on release of KC_BSPC
-            // In case KC_DEL is still being sent even after the release of KC_BSPC
-            if (delkey_registered) {
-                unregister_code(KC_DEL);
-                delkey_registered = false;
-                return false;
-            }
-        }
-        // Let QMK process the KC_BSPC keycode as usual outside of shift
-        return true;
-    }
-
-    }
-    return true;
+// This globally defines all key overrides to be used
+const key_override_t *key_overrides[] = {
+	&delete_key_override,
+  &word_delete_key_override,
 };
 
 
@@ -99,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       ALT_TAB, XXXXXXX, XXXXXXX, MS_BTN2,   MS_UP, MS_BTN1,                      MS_WHLU, KC_HOME,   KC_UP,  KC_END, KC_PGUP,  TO(0),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,LCTL(KC_A),LCTL(KC_S),MS_LEFT,MS_DOWN,MS_RIGHT,		                 MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
+      KC_LSFT,LCTL(KC_A),LCTL(KC_S),MS_LEFT,MS_DOWN,MS_RGHT,		                 MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
  KC_LCTL,LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),TT(2),     	               XXXXXXX, MS_WHLL, KC_BSPC, MS_WHLR, XXXXXXX, KC_LALT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
