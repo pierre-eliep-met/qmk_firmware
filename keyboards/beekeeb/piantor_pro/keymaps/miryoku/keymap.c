@@ -13,8 +13,6 @@ const key_override_t *key_overrides[] = {
   &word_delete_key_override,
 };
 
-
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -22,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 OSM(MOD_LSFT),    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, MT(MOD_RSFT, KC_CAPS),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_BSPC,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_LCTL,
+MT(MOD_LCTL,KC_BSPC),KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_LCTL,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                               MT(MOD_LGUI,KC_ENT),LALT_T(KC_SPC),TT(1),TT(2),LCTL(KC_BSPC),MT(MOD_RALT,KC_ENT)
                                       //`--------------------------'  `--------------------------'
@@ -31,11 +29,11 @@ OSM(MOD_LSFT),    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     
 
     [1] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-    KC_TAB,  XXXXXXX,LCTL(KC_W),KC_VOLU,KC_F2,LALT(KC_F4),                      MS_WHLU, KC_HOME,   KC_UP,  KC_END, KC_PGUP,  TO(0),
+    KC_TAB, XXXXXXX,LCTL(KC_W),KC_VOLU,LALT(KC_F4), KC_BRIU,                      MS_WHLU, KC_HOME,   KC_UP,  KC_END, KC_PGUP,  TO(0),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-OSM(MOD_LSFT),LCTL(KC_A),LCTL(KC_S),KC_VOLD,LCTL(KC_N),LCTL(KC_F),		           MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
+OSM(MOD_LSFT),LCTL(KC_A),LCTL(KC_S),KC_VOLD,KC_F2, KC_BRID,		                   MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-KC_BSPC,LCTL(KC_Z),LCTL(KC_X),KC_MUTE,LCTL(KC_V),LCTL(KC_Y),     	            MS_WHLL,LCTL(KC_LEFT),XXXXXXX,LCTL(KC_RIGHT),MS_WHLR,KC_LCTL,
+MT(MOD_LCTL,KC_BSPC),LCTL(KC_Z),LCTL(KC_X),KC_MUTE,LCTL(KC_V),LCTL(KC_Y),     	 MS_WHLL,LCTL(KC_LEFT),XXXXXXX,LCTL(KC_RIGHT),MS_WHLR,KC_LCTL,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                             MT(MOD_LGUI,KC_ENT),LALT_T(KC_SPC),TT(1),TT(2),LCTL(KC_BSPC),MT(MOD_RALT,KC_ENT)
                                       //`--------------------------'  `--------------------------'
@@ -49,7 +47,7 @@ KC_BSPC,LCTL(KC_Z),LCTL(KC_X),KC_MUTE,LCTL(KC_V),LCTL(KC_Y),     	            MS
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 OSM(MOD_LSFT),    KC_0,    KC_1,    KC_2,    KC_3, XXXXXXX,                      XXXXXXX, KC_PPLS, KC_PMNS, KC_PSLS, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_BSPC, XXXXXXX,    KC_4,    KC_5,	   KC_6, XXXXXXX,     	               KC_PDOT, XXXXXXX, XXXXXXX,  KC_DOT, XXXXXXX, KC_LCTL,
+MT(MOD_LCTL,KC_BSPC), XXXXXXX,    KC_4,    KC_5,	   KC_6, XXXXXXX,     	       KC_PDOT, XXXXXXX, XXXXXXX,  KC_DOT, XXXXXXX, KC_LCTL,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                             MT(MOD_LGUI,KC_ENT),LALT_T(KC_SPC),TT(1),TT(2),LCTL(KC_BSPC),MT(MOD_RALT,KC_ENT)
                                       //`--------------------------'  `--------------------------'
