@@ -20,6 +20,7 @@
 // Thumb keys
   #define ENT_GUI LGUI(KC_ENT)
   #define ENT_ALT LALT_T(KC_ENT)
+  #define ENT_LY3 LT(3,KC_ENT)
   #define SPC_ALT LALT_T(KC_SPC)
   #define DKC_LY1 LT(1,KC_DEL)
   #define SPC_LY1 LT(1,KC_SPC)
@@ -46,7 +47,7 @@
   #define CTL_RIGHT LCTL(KC_RIGHT)
 
 // layer 2 num
-  #define EURO UC(0x20AC)
+  #define EURO KC_EXLM
   #define K0_GUI LGUI_T(KC_0)
   #define K4_ALT LALT_T(KC_4)
   #define K5_CTL LCTL_T(KC_5)
@@ -165,7 +166,7 @@ void matrix_scan_user(void) { // The very important timer.
 }
 
 
-// todo : euro, KC_HASH
+// todo : KC_HASH
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
@@ -177,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_ALT, SPC_LY1,  QK_REP,    TAB_LY2, CTL_BSP, ENT_ALTGR
+                                              ENT_LY3, SPC_LY1,  QK_REP,    BSP_LY2, CTL_BSP, ENT_ALTGR
                                           //`--------------------------'  `--------------------------'
   ),
 
@@ -185,13 +186,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_split_3x6_3(
       //   outer,   pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky,   outer
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-          ALT_ESC,  ALT_F4,   CTL_C,  KC_F2,IMPRECRAN,   CTL_Y,                      MS_WHLU, KC_HOME,   KC_UP,  KC_END, KC_PGUP,   TO(0),
+          ALT_ESC,  ALT_F4,   CTL_C,  KC_F2,IMPRECRAN,   CTL_Y,                      MS_WHLU, KC_HOME,   KC_UP,  KC_END, KC_PGUP,  KC_ESC,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           ALT_TAB,   CTL_A,   CTL_S,   CTL_E, KC_LSFT,   CTL_F,		                   MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	               MS_WHLL,CTL_LEFT, KC_BSPC,CTL_RIGHT,MS_WHLR, CW_TOGG,
+          BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	               MS_WHLL,CTL_LEFT, XXXXXXX,CTL_RIGHT,MS_WHLR, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_ALT, SPC_LY1,  QK_REP,    TAB_LY2, CTL_BSP, ENT_ALTGR
+                                              ENT_LY3, SPC_LY1,  QK_REP,    BSP_LY2, CTL_BSP, ENT_ALTGR
                                             //`------------------------'  `--------------------------'
   ),
 
@@ -199,13 +200,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT_split_3x6_3(
       //   outer,   pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky,   outer
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-           KC_ESC, KC_CIRC,    KC_7,    KC_8,    KC_9, KC_PERC,                        KC_AT, KC_AMPR, KC_PAST, XXXXXXX, QK_BOOT,   TO(0),
+           KC_ESC, KC_CIRC,    KC_7,    KC_8,    KC_9, KC_PERC,                        KC_AT, KC_AMPR, KC_PAST, XXXXXXX, QK_BOOT,  KC_ESC,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-           KC_TAB,  K0_GUI,    KC_4,  K5_CTL,  K6_SFT,  KC_EQL,                      KC_BSLS, PLS_SFT, MNS_CTL, SLS_ALT, XXXXXXX,  KC_TAB,
+           KC_TAB,  K0_GUI,  K4_ALT,  K5_CTL,  K6_SFT,  KC_EQL,                      KC_BSLS, PLS_SFT, MNS_CTL, SLS_ALT, XXXXXXX,  KC_TAB,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          BSP_CTL, KC_TILD,    KC_1,    KC_2,    KC_3, KC_NUHS,                      KC_PDOT, KC_EXLM, KC_SCLN,  KC_DOT,    EURO, CW_TOGG,
+          BSP_CTL, KC_TILD,    KC_1,    KC_2,    KC_3, KC_NUHS,                      KC_PDOT,    EURO, KC_SCLN,  KC_DOT, XXXXXXX, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_ALT, SPC_LY1,  QK_REP,    TAB_LY2, CTL_BSP, ENT_ALTGR
+                                              ENT_LY3, SPC_LY1,  QK_REP,    BSP_LY2, CTL_BSP, ENT_ALTGR
                                           //`--------------------------'  `--------------------------'
   ),
+
+  [3] = LAYOUT_split_3x6_3(  // mouse layout
+      //   outer,   pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky,   outer
+      //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+          XXXXXXX, XXXXXXX,   CTL_C, MS_WHLU, MS_BTN1, KC_PGUP,                      XXXXXXX, MS_BTN1,   MS_UP, MS_BTN2, XXXXXXX,  KC_ESC,
+      //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+          ALT_TAB, MS_BTN2, MS_WHLL, MS_WHLD, MS_WHLR, KC_PGDN,                      XXXXXXX, MS_LEFT, MS_DOWN, MS_RGHT, XXXXXXX,  KC_TAB,
+      //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+          BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG,
+      //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                              ENT_LY3, SPC_LY1,  QK_REP,    BSP_LY2, CTL_BSP,ENT_ALTGR
+                                          //`--------------------------'  `--------------------------'
+  )
 };
