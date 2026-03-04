@@ -38,6 +38,7 @@
   #define CTL_A LCTL(KC_A)
   #define CTL_S LCTL(KC_S)
   #define CTL_E LCTL(KC_D)
+  #define CTL_N LCTL(KC_N)
   #define CTL_F LCTL(KC_G)
   #define CTL_Z LCTL(KC_Z)
   #define CTL_X LCTL(KC_X)
@@ -178,9 +179,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY3, SPC_LY1,  QK_REP,    BSP_LY2, CTL_BSP, ENT_ALTGR
+                                              ENT_LY3, SPC_LY1,  QK_REP,    CTL_BSP,ENT_ALTGR, BSP_LY2
                                           //`--------------------------'  `--------------------------'
-  ),                                      //    mouse,ctrl nav, repeat,     numpad, backspace, altgr
+  ),                                      //    mouse,ctrl nav, repeat,     backspace, altgr, numpad
 
 
   [1] = LAYOUT_split_3x6_3(
@@ -188,13 +189,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
            KC_ESC,  ALT_F4,   CTL_C,  KC_F2,IMPRECRAN,   CTL_Y,                      MS_WHLU, KC_HOME,   KC_UP,  KC_END, KC_PGUP,  KC_ESC,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          ALT_ESC,   CTL_A,   CTL_S,   CTL_E, KC_LSFT,   CTL_F,		                   MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
+          ALT_ESC,   CTL_A,   CTL_S,   CTL_E, ALT_TAB,   CTL_F,		                   MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	               MS_WHLL,CTL_LEFT, MS_BTN1,CTL_RIGHT,MS_WHLR, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY3, SPC_LY1,  QK_REP,    BSP_LY2, CTL_BSP, ENT_ALTGR
+                                              ENT_LY3, SPC_LY1,  QK_REP,    CTL_BSP,ENT_ALTGR, BSP_LY2
                                             //`------------------------'  `--------------------------'
-  ),                                        // mouse, ctrl nav, repeat,     numpad, backspace, altgr
+  ),                                        // mouse, ctrl nav, repeat,     backspace, altgr, numpad
 
 
   [2] = LAYOUT_split_3x6_3(
@@ -202,13 +203,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
            KC_ESC, KC_CIRC,    KC_7,    KC_8,    KC_9, KC_PERC,                        KC_AT, KC_AMPR, KC_PAST, XXXXXXX, XXXXXXX,  KC_ESC,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-           KC_TAB,  K0_GUI,  K4_ALT,  K5_CTL,  K6_SFT,  KC_EQL,                      KC_BSLS, KC_PLUS, KC_PMNS, KC_PSLS, KC_QUOT,  KC_TAB,
+           KC_TAB,    KC_0,    KC_4,    KC_5,    KC_6,  KC_EQL,                      KC_BSLS, KC_PLUS, KC_PMNS, KC_PSLS, KC_QUOT,  KC_TAB,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL, KC_TILD,    KC_1,    KC_2,    KC_3, KC_HASH,                      KC_PDOT,    EURO, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY3, SPC_LY1,  QK_REP,    BSP_LY2, CTL_BSP, ENT_ALTGR
+                                              ENT_LY3, SPC_LY1,  QK_REP,    CTL_BSP,ENT_ALTGR, BSP_LY2
                                           //`--------------------------'  `--------------------------'
-  ),                                      //   mouse, ctrl nav, repeat,     numpad, backspace, altgr
+  ),                                      //   mouse, ctrl nav, repeat,     backspace, altgr, numpad
 
 
   [3] = LAYOUT_split_3x6_3(  // mouse layout
@@ -220,7 +221,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY3, SPC_LY1,  QK_REP,    BSP_LY2, CTL_BSP,ENT_ALTGR
+                                              ENT_LY3, SPC_LY1,  QK_REP,    CTL_BSP,ENT_ALTGR, BSP_LY2
                                           //`--------------------------'  `--------------------------'
-  )                                       //   mouse, ctrl nav, repeat,     numpad, backspace, altgr
+  )                                       //   mouse, ctrl nav, repeat,     backspace, altgr, numpad
 };
