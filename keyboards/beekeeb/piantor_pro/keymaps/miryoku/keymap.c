@@ -37,6 +37,7 @@
   #define ALT_ESC LALT(KC_ESC)
   #define CTL_C LCTL(KC_W)
   #define IMPRECRAN LGUI(LSFT(KC_S))
+  #define BSP_SFT MT(MOD_LSFT,KC_BSPC)
   #define CTL_Y LCTL(KC_P)
   #define CTL_A LCTL(KC_A)
   #define CTL_S LCTL(KC_S)
@@ -192,9 +193,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
            KC_ESC,  ALT_F4,   CTL_C,  KC_F2,IMPRECRAN,   CTL_Y,                      MS_WHLU, KC_HOME,   KC_UP,  KC_END, KC_PGUP,  KC_ESC,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          ALT_TAB,   CTL_A,   CTL_S,   CTL_E, ALT_TAB,   CTL_F,		                   MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
+          ALT_TAB,   CTL_A,   CTL_S,   CTL_E, BSP_SFT,   CTL_F,		                   MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	               MS_WHLL,CTL_LEFT, MS_BTN1,CTL_RIGHT,MS_WHLR, CW_TOGG,
+          BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	               MS_WHLL,CTL_LEFT, KC_BSPC,CTL_RIGHT,MS_WHLR, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                               ENT_LY2, SPC_LY1,  QK_REP,    ALT_TAB,ENT_ALTGR,CTL_BSP
                                             //`------------------------'  `--------------------------'
@@ -204,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT_split_3x6_3(
       //   outer,   pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky,   outer
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-           KC_ESC, KC_CIRC,    KC_7,    KC_8,    KC_9, KC_PERC,                        KC_AT, KC_AMPR, KC_PAST, XXXXXXX, XXXXXXX,  KC_ESC,
+           KC_ESC, KC_CIRC,    KC_7,    KC_8,    KC_9, KC_PERC,                        KC_AT, KC_AMPR, KC_PAST, XXXXXXX, XXXXXXX, QK_BOOT,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
            KC_TAB,    KC_0,    KC_4,    KC_5,    KC_6,  KC_EQL,                      KC_BSLS, KC_PLUS, KC_PMNS, KC_PSLS, KC_QUOT,  KC_TAB,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
