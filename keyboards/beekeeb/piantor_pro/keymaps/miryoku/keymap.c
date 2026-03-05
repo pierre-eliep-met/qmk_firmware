@@ -7,7 +7,6 @@
 
 
 // main layer
-  #define BSP_CTL MT(MOD_LCTL,KC_BSPC)
   #define A_GUI LGUI_T(KC_A)
   #define S_ALT LALT_T(KC_S)
   #define D_CTL LCTL_T(KC_D)
@@ -18,16 +17,20 @@
   #define SCLN_GUI RGUI_T(KC_SCLN)
 
 // Thumb keys
-  #define ENT_GUI LGUI(KC_ENT)
-  #define ENT_ALT LALT_T(KC_ENT)
-  #define ENT_LY3 LT(3,KC_ENT)
+  #define ENT_LY2 LT(2,KC_ENT)
+  #define SPC_LY1 LT(1,KC_SPC)
+  #define CTL_BSP LCTL(KC_BSPC)
+  #define BSP_LY3 LT(3,KC_BSPC)
+  #define ENT_ALTGR MT(MOD_RALT,KC_ENT)
+  // QK_REP
+
+  // Unused thumb keys
+  #define BSP_CTL MT(MOD_LCTL,KC_BSPC)
+  #define TAB_LY2 LT(2,KC_TAB)
   #define SPC_ALT LALT_T(KC_SPC)
   #define DKC_LY1 LT(1,KC_DEL)
-  #define SPC_LY1 LT(1,KC_SPC)
-  #define BSP_LY2 LT(2,KC_BSPC)
-  #define TAB_LY2 LT(2,KC_TAB)
-  #define CTL_BSP LCTL(KC_BSPC)
-  #define ENT_ALTGR MT(MOD_RALT,KC_ENT)
+  #define ENT_GUI LGUI(KC_ENT)
+  #define ENT_ALT LALT_T(KC_ENT)
 
 // layer 1 nav + ctrl
   #define ALT_F4 LALT(KC_F4)
@@ -178,8 +181,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            KC_TAB,   A_GUI,   S_ALT,   D_CTL,   F_SFT,    KC_G,                         KC_H,   J_SFT,   K_CTL,   L_ALT, KC_SCLN,  KC_TAB,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, CW_TOGG,
-      //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY3, SPC_LY1,  QK_REP,    CTL_BSP,ENT_ALTGR, BSP_LY2
+      //|--------+--------+--------+--------+--------+--------+--------|---+--------+--------+--------+--------|
+                                              ENT_LY2, SPC_LY1,  QK_REP,    ALT_TAB,ENT_ALTGR,CTL_BSP
                                           //`--------------------------'  `--------------------------'
   ),                                      //    mouse,ctrl nav, repeat,     backspace, altgr, numpad
 
@@ -189,11 +192,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
            KC_ESC,  ALT_F4,   CTL_C,  KC_F2,IMPRECRAN,   CTL_Y,                      MS_WHLU, KC_HOME,   KC_UP,  KC_END, KC_PGUP,  KC_ESC,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          ALT_ESC,   CTL_A,   CTL_S,   CTL_E, ALT_TAB,   CTL_F,		                   MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
+          ALT_TAB,   CTL_A,   CTL_S,   CTL_E, ALT_TAB,   CTL_F,		                   MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	               MS_WHLL,CTL_LEFT, MS_BTN1,CTL_RIGHT,MS_WHLR, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY3, SPC_LY1,  QK_REP,    CTL_BSP,ENT_ALTGR, BSP_LY2
+                                              ENT_LY2, SPC_LY1,  QK_REP,    ALT_TAB,ENT_ALTGR,CTL_BSP
                                             //`------------------------'  `--------------------------'
   ),                                        // mouse, ctrl nav, repeat,     backspace, altgr, numpad
 
@@ -207,21 +210,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL, KC_TILD,    KC_1,    KC_2,    KC_3, KC_HASH,                      KC_PDOT,    EURO, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY3, SPC_LY1,  QK_REP,    CTL_BSP,ENT_ALTGR, BSP_LY2
+                                              ENT_LY2, SPC_LY1,  QK_REP,    ALT_TAB,ENT_ALTGR,CTL_BSP
                                           //`--------------------------'  `--------------------------'
   ),                                      //   mouse, ctrl nav, repeat,     backspace, altgr, numpad
-
-
-  [3] = LAYOUT_split_3x6_3(  // mouse layout
-      //   outer,   pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky,   outer
-      //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-          XXXXXXX, XXXXXXX,   CTL_C, MS_WHLU, MS_BTN1, KC_PGUP,                      XXXXXXX, MS_BTN1,   MS_UP, MS_BTN2, KC_PGUP, QK_BOOT,
-      //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          ALT_TAB, MS_BTN2, MS_WHLL, MS_WHLD, MS_WHLR, KC_PGDN,                      XXXXXXX, MS_LEFT, MS_DOWN, MS_RGHT, KC_PGDN,  KC_TAB,
-      //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG,
-      //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY3, SPC_LY1,  QK_REP,    CTL_BSP,ENT_ALTGR, BSP_LY2
-                                          //`--------------------------'  `--------------------------'
-  )                                       //   mouse, ctrl nav, repeat,     backspace, altgr, numpad
 };
