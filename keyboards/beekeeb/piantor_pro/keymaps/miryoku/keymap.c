@@ -183,7 +183,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|---+--------+--------+--------+--------|
-                                              ENT_LY2, SPC_LY1,  QK_REP,    ALT_TAB,ENT_ALTGR,CTL_BSP
+                                              ENT_LY2, SPC_LY1,  ALT_TAB,    QK_REP,ENT_ALTGR,CTL_BSP
                                           //`--------------------------'  `--------------------------'
   ),                                      //    mouse,ctrl nav, repeat,     backspace, altgr, numpad
 
@@ -197,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	               MS_WHLL,CTL_LEFT, KC_BSPC,CTL_RIGHT,MS_WHLR, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY2, SPC_LY1,  QK_REP,    ALT_TAB,ENT_ALTGR,CTL_BSP
+                                              ENT_LY2, SPC_LY1,  ALT_TAB,    QK_REP,ENT_ALTGR,CTL_BSP
                                             //`------------------------'  `--------------------------'
   ),                                        // mouse, ctrl nav, repeat,     backspace, altgr, numpad
 
@@ -211,7 +211,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL, KC_TILD,    KC_1,    KC_2,    KC_3, KC_HASH,                      KC_PDOT,    EURO, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY2, SPC_LY1,  QK_REP,    ALT_TAB,ENT_ALTGR,CTL_BSP
+                                              ENT_LY2, SPC_LY1,  ALT_TAB,    QK_REP,ENT_ALTGR,CTL_BSP
                                           //`--------------------------'  `--------------------------'
   ),                                      //   mouse, ctrl nav, repeat,     backspace, altgr, numpad
 };
