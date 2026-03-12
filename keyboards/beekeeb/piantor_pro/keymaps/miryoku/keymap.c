@@ -71,12 +71,6 @@ const key_override_t *key_overrides[] = {
   &word_delete_key_override,
 };
 
-
-const uint16_t PROGMEM  underscore[] = {ENT_ALTGR, SPC_LY1, COMBO_END};
-combo_t key_combos[] = {
-    COMBO(underscore, KC_UNDS),
-};
-
 bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
         // Keycodes that continue Caps Word, without shifting.
