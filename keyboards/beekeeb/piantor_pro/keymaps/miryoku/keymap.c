@@ -34,7 +34,7 @@
 
 // layer 1 nav + ctrl
   #define ALT_F4 LALT(KC_F4)
-  #define CTL_ALT_TAB LCTL_T(LALT(KC_TAB))
+  #define CTL_ALT_TAB LCTL_T(LALT_T(KC_TAB))
   #define ALT_ESC LALT(KC_ESC)
   #define CTL_C LCTL(KC_W)
   #define IMPRECRAN LGUI(LSFT(KC_S))
@@ -152,13 +152,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_TAB);
       }
       break;
+    case SPC_LY1:
+      if (record->event.pressed) {
+        if (is_alt_tab_active) {
+          is_alt_tab_active = false;
+          unregister_code(KC_LALT);
+        }
+      }
+      break;
   }
   return true;
 }
 
 void matrix_scan_user(void) { // The very important timer.
   if (is_alt_tab_active) {
-    if (timer_elapsed(alt_tab_timer) > 1000) {
+    if (timer_elapsed(alt_tab_timer) > 5000) {
       unregister_code(KC_LALT);
       is_alt_tab_active = false;
     }
@@ -178,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|---+--------+--------+--------+--------|
-                                              ENT_LY2, SPC_LY1,CTL_ALT_TAB,   BSP_LY2,ENT_ALTGR,CTL_BSP
+                                              ENT_LY2, SPC_LY1, ALT_TAB,   BSP_LY2,ENT_ALTGR,CTL_BSP
                                           //`--------------------------'  `--------------------------'
   ),                                      //    mouse,ctrl nav, repeat,     backspace, altgr, numpad
 
@@ -192,7 +200,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	               MS_WHLL,CTL_LEFT, MS_BTN1,CTL_RIGHT,MS_WHLR, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY2, SPC_LY1,CTL_ALT_TAB,   BSP_LY2,ENT_ALTGR,CTL_BSP
+                                              ENT_LY2, SPC_LY1, ALT_TAB,   BSP_LY2,ENT_ALTGR,CTL_BSP
                                             //`------------------------'  `--------------------------'
   ),                                        // mouse, ctrl nav, repeat,     backspace, altgr, numpad
 
@@ -206,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
           BSP_CTL, KC_TILD,    KC_1,    KC_2,    KC_3, KC_HASH,                      KC_PDOT,    EURO, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG,
       //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                              ENT_LY2, SPC_LY1,CTL_ALT_TAB,   BSP_LY2,ENT_ALTGR,CTL_BSP
+                                              ENT_LY2, SPC_LY1, ALT_TAB,   BSP_LY2,ENT_ALTGR,CTL_BSP
                                           //`--------------------------'  `--------------------------'
   ),                                      //   mouse, ctrl nav, repeat,     backspace, altgr, numpad
 };
