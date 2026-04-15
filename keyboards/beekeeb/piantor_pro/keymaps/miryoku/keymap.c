@@ -153,6 +153,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
     case SPC_LY1:
+      if (record->tap.count && record->event.pressed) {
+        if (is_alt_tab_active) {
+          is_alt_tab_active = false;
+          unregister_code(KC_LALT);
+        }
+      }
+      break;
+    case ENT_ALTGR:
+      if (record->tap.count && record->event.pressed) {
+        if (is_alt_tab_active) {
+          is_alt_tab_active = false;
+          unregister_code(KC_LALT);
+        }
+      }
+      break;
+    case MS_BTN1:
       if (record->event.pressed) {
         if (is_alt_tab_active) {
           is_alt_tab_active = false;
@@ -173,8 +189,6 @@ void matrix_scan_user(void) { // The very important timer.
   }
 }
 
-
-// todo : KC_HASH
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
