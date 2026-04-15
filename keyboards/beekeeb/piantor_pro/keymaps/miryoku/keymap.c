@@ -152,27 +152,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_TAB);
       }
       break;
-    case SPC_LY1:
-      if (record->tap.count && record->event.pressed) {
-        if (is_alt_tab_active) {
-          is_alt_tab_active = false;
-          unregister_code(KC_LALT);
-        }
-      }
-      break;
-    case ENT_ALTGR:
-      if (record->tap.count && record->event.pressed) {
-        if (is_alt_tab_active) {
-          is_alt_tab_active = false;
-          unregister_code(KC_LALT);
-        }
-      }
-      break;
-    case MS_BTN1:
-      if (record->event.pressed) {
-        if (is_alt_tab_active) {
-          is_alt_tab_active = false;
-          unregister_code(KC_LALT);
+    default:
+      if (record->event.pressed && is_alt_tab_active) {
+        switch (keycode) {
+          case KC_LEFT:
+          case KC_RIGHT:
+          case KC_UP:
+          case KC_DOWN:
+          case KC_HOME:
+          case KC_END:
+          case KC_PGUP:
+          case KC_PGDN:
+            break;
+          case SPC_LY1:
+          case ENT_LY2:
+            if (record->tap.count) {
+              is_alt_tab_active = false;
+              unregister_code(KC_LALT);
+            }
+            break;
+          default:
+            is_alt_tab_active = false;
+            unregister_code(KC_LALT);
+            break;
         }
       }
       break;
