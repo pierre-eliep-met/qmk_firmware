@@ -32,7 +32,7 @@
   #define ENT_GUI LGUI(KC_ENT)
   #define ENT_ALT LALT_T(KC_ENT)
 
-// layer 1 nav + ctrl
+// layer 1 nav | ctrl
   #define ALT_F4 LALT(KC_F4)
   #define CTL_ALT_TAB LCTL_T(LALT_T(KC_TAB))
   #define ALT_ESC LALT(KC_ESC)
@@ -193,44 +193,44 @@ void matrix_scan_user(void) { // The very important timer.
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_split_3x6_3(
-      //    outer,   pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky,   outer
-      //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-           KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_ESC,
-      //|--------|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|--------|
-           KC_TAB,   A_GUI,   S_ALT,   D_CTL,   F_SFT,    KC_G,                         KC_H,   J_SFT,   K_CTL,   L_ALT, KC_SCLN,  KC_TAB,
-      //|--------|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|--------|
-          BSP_CTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, CW_TOGG,
-      //|--------|--------|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|--------|--------|
-                                              ENT_LY2, SPC_LY1, ALT_TAB,   BSP_LY2,ENT_ALTGR,CTL_BSP
-                                          //`--------------------------'  `--------------------------'
-  ),                                      //    mouse,ctrl nav, repeat,     backspace, altgr, numpad
+  [0] = LAYOUT_split_3x5_3(
+      //    pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky,
+      //,--------------------------------------------.                    ,---------------------------------------------
+             KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
+      //|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|
+            A_GUI,   S_ALT,   D_CTL,   F_SFT,    KC_G,                         KC_H,   J_SFT,   K_CTL,   L_ALT, KC_SCLN,
+      //|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|
+             KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
+      //|--------|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|--------|
+                                              SPC_LY1, ENT_LY2,   BSP_LY2, ENT_ALTGR
+                                            //`---------------'  `-----------------'
+  ),                                        // ctrl nav, other  num backspace, altgr
 
 
-  [1] = LAYOUT_split_3x6_3(
-      //   outer,   pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky,   outer
-      //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-           KC_ESC,  ALT_F4,   CTL_C,  KC_F2,IMPRECRAN,   CTL_Y,                      MS_WHLU, KC_HOME,   KC_UP,  KC_END, KC_PGUP,  KC_ESC,
-      //|--------|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|--------|
-          ALT_TAB,   CTL_A,   CTL_S,   CTL_E, BSP_SFT,   CTL_F,		                   MS_WHLD, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN, KC_CAPS, 
-      //|--------|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|--------|
-          BSP_CTL,   CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	               MS_WHLL,CTL_LEFT, MS_BTN1,CTL_RIGHT,MS_WHLR, CW_TOGG,
-      //|--------|--------|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|--------|--------|
-                                              ENT_LY2, SPC_LY1, ALT_TAB,   BSP_LY2,ENT_ALTGR,CTL_BSP
-                                            //`------------------------'  `--------------------------'
-  ),                                        // mouse, ctrl nav, repeat,     backspace, altgr, numpad
+  [1] = LAYOUT_split_3x5_3(
+      //  pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky
+      //|--------------------------------------------.                    ,---------------------------------------------
+          KC_ESC,   CTL_C,  KC_F2,  ALT_TAB,  CTL_Y,                        KC_CAPS, KC_HOME,   KC_UP,  KC_END, KC_PGUP,
+      //|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|
+           CTL_A,   CTL_S,   CTL_E, BSP_SFT,   CTL_F,		                    CW_TOGG, KC_LEFT, KC_DOWN,KC_RIGHT, KC_PGDN,
+      //|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|
+           CTL_Z,   CTL_X,  KC_DEL,   CTL_V,   CTL_B,     	                XXXXXXX,CTL_LEFT, MS_BTN1,CTL_RIGHT,XXXXXXX,
+      //|--------|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|--------|
+                                              SPC_LY1, ENT_LY2,   BSP_LY2, ENT_ALTGR
+                                            //`---------------'  `-----------------'
+  ),                                        // ctrl nav, other  num backspace, altgr
 
 
-  [2] = LAYOUT_split_3x6_3(
-      //   outer,   pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky,   outer
-      //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-           KC_ESC, KC_CIRC,    KC_7,    KC_8,    KC_9, KC_PERC,                        KC_AT, KC_AMPR, KC_PAST, XXXXXXX, XXXXXXX, QK_BOOT,
-      //|--------|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|--------|
-           KC_TAB,    KC_0,    KC_4,    KC_5,    KC_6,  KC_EQL,                      KC_BSLS, KC_PLUS, KC_PMNS, KC_PSLS, KC_QUOT,  KC_TAB,
-      //|--------|--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|--------|
-          BSP_CTL, KC_TILD,    KC_1,    KC_2,    KC_3, KC_HASH,                      KC_PDOT,    EURO, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG,
-      //|--------|--------|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|--------|--------|
-                                              ENT_LY2, SPC_LY1, ALT_TAB,   BSP_LY2,ENT_ALTGR,CTL_BSP
-                                          //`--------------------------'  `--------------------------'
-  ),                                      //   mouse, ctrl nav, repeat,     backspace, altgr, numpad
+  [2] = LAYOUT_split_3x5_3(
+      //  pinky,    ring,  middle,   index,   inner,                        inner,   index,  middle,    ring,   pinky
+      //--------------------------------------------.                    ,---------------------------------------------
+         KC_CIRC,    KC_7,    KC_8,    KC_9, KC_PERC,                      XXXXXXX, MS_BTN1, MS_WHLU, MS_BTN2, KC_PGUP,
+      //--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|
+            KC_0,    KC_4,    KC_5,    KC_6,  KC_EQL,                      XXXXXXX, MS_WHLL, MS_WHLD, MS_WHLR, KC_PGDN,
+      //--------|--------|--------|--------|--------|                    |--------|--------|--------|--------|--------|
+         KC_TILD,    KC_1,    KC_2,    KC_3,    EURO,                      KC_PDOT, CTL_BSP,  KC_TAB, XXXXXXX, XXXXXXX,
+      //--------|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|--------|
+                                             SPC_LY1, ENT_LY2,    BSP_LY2, ENT_ALTGR
+                                            //`---------------'  `-----------------'
+  ),                                        // ctrl nav, other  num backspace, altgr
 };
