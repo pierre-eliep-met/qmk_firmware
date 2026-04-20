@@ -92,10 +92,11 @@ bool caps_word_press_user(uint16_t keycode) {
             return true;
 
         // Keycodes that continue Caps Word, with shift applied.
-        case KC_A ... KC_Z:
+        case KC_A ... KC_U:
         case KC_SCLN: // u
         case KC_COMM: // g
         case KC_SLSH: // k
+        case KC_W ... KC_Z:
             if (get_mods() & MOD_BIT(KC_RALT)) { // Stop on altgr symbols
                 return false;
             }
